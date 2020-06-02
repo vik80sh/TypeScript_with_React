@@ -1,22 +1,9 @@
-import React from 'react';
+import React, { useState, useReducer } from 'react';
+import ShopContext from './context';
+import { shopReducer, ADD_PRODUCT, REMOVE_PRODUCT } from './reducerStore';
 
-interface contextDefaultValue {
-    products: {
-        id: String,
-        title: String,
-        author: String,
-        price: String,
-        image: String,
-        rating: number,
-        reviewers: number
-    }[],
-    cart: object,
-    name: String,
-    addProductToCart: object,
-    removeProductFromCart: object
-}
-export default React.createContext<contextDefaultValue>({
-    products: [
+const GlobalState = (props: any) => {
+    const products = [
         {
             id: 'p1',
             title: 'React 16.6',
@@ -59,7 +46,7 @@ export default React.createContext<contextDefaultValue>({
             author: 'Daniel English',
             price: '621',
             image: "https://m.media-amazon.com/images/I/51TG3PQHi9L.jpg",
-             rating: 4.7,
+            rating: 4.7,
             reviewers: 123
         },
         {
@@ -99,7 +86,7 @@ export default React.createContext<contextDefaultValue>({
             reviewers: 2676
         },
         {
-            id: 'p9',
+            id: 'p10',
             title: 'The End of the Loneliness',
             author: 'Benedict Wells',
             price: '340',
@@ -107,11 +94,34 @@ export default React.createContext<contextDefaultValue>({
             rating: 3.5,
             reviewers: 976
         }
-    ],
-    cart: [],
-    name: "Vikash",
-    addProductToCart: (product: any) => {
-    },
-    removeProductFromCart: (productId: any) => {
+    ]
+    const name = "Vikash"
+    const [cartState, dispatch] = useReducer(shopReducer,{cart:""},{type:"",payload:""})
+    const cart: object = []
+
+
+    const addProductToCart = (product: object) => {
+        dispatch({type:ADD_PRODUCT, paylod:product})
+       
     }
-});
+    const removeProductFromCart = (product: any) => {
+        dispatch({type:REMOVE_PRODUCT, paylod:product})
+       
+    }
+
+    return (
+        <ShopContext.Provider
+            value={{
+                products: products,
+                cart: cart,
+                name: name,
+                addProductToCart: addProductToCart,
+                removeProductFromCart: removeProductFromCart
+            }}
+        >
+            {props.children}
+        </ShopContext.Provider>
+    );
+}
+
+export default GlobalState;
