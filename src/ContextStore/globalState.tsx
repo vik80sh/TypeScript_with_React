@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState, useReducer,useEffect} from 'react';
 import ShopContext from './context';
 import { shopReducer, ADD_PRODUCT, REMOVE_PRODUCT } from './reducerStore';
 
@@ -95,25 +95,27 @@ const GlobalState = (props: any) => {
             reviewers: 976
         }
     ]
-    const name = "Vikash"
-    const [cartState, dispatch] = useReducer(shopReducer,{cart:""},{type:"",payload:""})
-    const cart: object = []
+    const name = "Vikash";
+    const [cartData, dispatch] = useReducer(shopReducer, { cart:[] });
+  
 
-
+    useEffect(()=>{
+      console.log(cartData,"  cartData cartData")  
+    },cartData.cart)
     const addProductToCart = (product: object) => {
-        dispatch({type:ADD_PRODUCT, paylod:product})
-       
+        dispatch({ type: ADD_PRODUCT, payload: product })
+
     }
     const removeProductFromCart = (product: any) => {
-        dispatch({type:REMOVE_PRODUCT, paylod:product})
-       
+        dispatch({ type: REMOVE_PRODUCT, payload: product })
+
     }
 
     return (
         <ShopContext.Provider
             value={{
                 products: products,
-                cart: cart,
+                cart: cartData.cart,
                 name: name,
                 addProductToCart: addProductToCart,
                 removeProductFromCart: removeProductFromCart

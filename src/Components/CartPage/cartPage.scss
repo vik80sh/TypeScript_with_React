@@ -1,0 +1,131 @@
+.cart-wrapper {
+    .cart-item-left {
+        padding: 20px;
+        width: 75%;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+        float: left;
+        .item-wrapper {
+            display: flex;
+            padding: 20px 0;
+            .item-image {
+                height: 230px;
+                width: 180px;
+                img {
+                    height: 100%;
+                    width: 100%;
+                }
+                margin-right: 40px;
+            }
+            border-bottom: 1px solid;
+
+            .item-content {
+                padding-left: 20px;
+                padding: 0 10px 0 30px;
+                font-size: 20px;
+                flex-basis: 45%;
+                .item-author {
+                    color: #878787;
+                    font-size: 16px;
+                    padding-bottom: 15px;
+                }
+
+                .item-rating-review {
+                    display: inline-flex;
+
+                    .rating {
+                        line-height: normal;
+                        display: inline-block;
+                        color: #fff;
+                        padding: 2px 4px 2px 6px;
+                        border-radius: 3px;
+                        font-weight: 500;
+                        font-size: 15px;
+                        vertical-align: middle;
+                        background-color: #388e3c;
+
+                        img {
+                            width: 12px;
+                            height: 15px;
+                        }
+                    }
+
+                    .reviews {
+                        padding-left: 8px;
+                        font-weight: 500;
+                        color: #878787;
+                    }
+                }
+
+                .item-price {
+                    display: flex;
+
+                    .price-now {
+                        padding-top: 15px;
+                        padding-right: 15px;
+                    }
+
+                    .price-discount {
+                        padding-top: 15px;
+
+                        .prev-price {
+                            font-size: 16px;
+                            font-weight: 500;
+                            color: #212121;
+                            padding-right: 10px;
+                        }
+
+                        .prev-price {
+                            text-decoration: line-through;
+                            font-size: 14px;
+                            color: #878787;
+                            padding-right: px;
+                        }
+
+                        .price-off {
+                            color: #388e3c;
+                            font-size: 14px;
+                            letter-spacing: -0.2px;
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
+            .date-dliver{
+                text-align: center;
+                flex-basis: 30%;
+            }
+        }
+    }
+    .cart-price-right {
+        width: 24%;
+        float: right;
+        height: 280px;
+        padding: 40px 0px;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+
+        .price-details{
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .pad{
+            padding: 10px 20px;
+        }
+        .develry-charge{
+            border-bottom: 2px dotted #f0f0f0;
+        }
+        .cart-price-right-2{
+            float: right;
+            padding-right: 10px;
+        }
+        .total-price{
+            font-weight: bold;
+        }
+    }
+}
+.no-items{
+    margin-top: 120px;
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+}
