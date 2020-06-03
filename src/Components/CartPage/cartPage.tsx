@@ -5,10 +5,7 @@ import starImage from './../../Asserts/star.png'
 import './cartPage.scss'
 const Cart = () => {
     const context = useContext(ShopContext);
-
-    useEffect(() => {
-        console.log(context)
-    }, [])
+    console.log("==+++==== ",context.removeProductFromCart)
     let cart: any = context.cart;
     let totalPrice: number = 0;
     let sizeOfCart: boolean = cart.length && cart.length > 0 ? true : false;
@@ -16,8 +13,9 @@ const Cart = () => {
         return (<div className="text-capitalize cart-wrapper">
             <div className="cart-item-left">
                 {cart.map((data: any, i: number) => {
-                    totalPrice = totalPrice + parseInt(data.prevPrice)
-                    console.log(" - -- -  total---", totalPrice)
+                    let offeredPrice: number = data.price - (data.price * data.discountPercent / 100);
+                    let priceNow = offeredPrice.toFixed(2);
+                    totalPrice = totalPrice + parseInt(priceNow)
                     return <div className="item-wrapper">
                         <div className="item-image"><img src={data.image} alt="book-img" /></div>
                         <div className="item-content">
@@ -28,15 +26,15 @@ const Cart = () => {
                                 <div className="reviews">({data.reviewers})</div>
                             </div>
                             <div className="item-price">
-                                <div className="price-now">{data.prevPrice}</div>
+                                <div className="price-now">{priceNow}</div>
                                 <div className="price-discount">
                                     <span className="prev-price">RS {data.price}</span>
-                                    <span className="price-off">{data.offerPecentage}% off  {Math.round(Math.random() * 5 + 1)} offers available</span>
+                                    <span className="price-off">{data.discountPercent }% off  {Math.round(Math.random() * 5 + 1)} offers available</span>
                                 </div>
                             </div>
+                            <div className="remove-card-btn"  onClick={() =>context.removeProductFromCart} > Remove </div>
                         </div>
                         <div className="date-dliver">Delivery by Sat Jun 13 | Free₹40</div>
-
                     </div>
                 })}
             </div>

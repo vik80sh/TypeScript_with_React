@@ -5,21 +5,15 @@ import './productPage.scss'
 
 export default class Product extends Component {
     static contextType = ShopContext;
-    componentDidMount() {
-        console.log("= === + + componentDidMoun + + + +Product ")
-    }
     render() {
+        console.log("==+++==== ",this.context.removeProductFromCart)
         return (
             <div className="product-wrapper">
                 <div className="product-wrapper-left"> </div>
                 <div className="product-wrapper-right">
                     {this.context.products.map((data: any, i: number) => {
-                        let offerPercentage = Math.round((Math.random() * 70));
-                        let offeredPrice: number = data.price - (data.price * offerPercentage / 100);
+                        let offeredPrice: number = data.price - (data.price * data.discountPercent / 100);
                         let priceNow = offeredPrice.toFixed(2);
-                        let dataObject = data;
-                        dataObject.prevPrice=priceNow;
-                        dataObject.offerPecentage = offerPercentage
                         return <div className="product-list" key={i}>
                                 <div className="product-image"><img src={data.image} alt="book-img" /></div>
                                 <div className="text-capitalize product-details">
@@ -33,11 +27,11 @@ export default class Product extends Component {
                                         <div className="price-now">{priceNow}</div> 
                                         <div className="price-discount">
                                                 <span className="prev-price">RS {data.price}</span>
-                                                <span className="price-off">{offerPercentage}% off</span>
+                                                <span className="price-off">{data.discountPercent }% off</span>
                                         </div>
                                     </div>
                                     <div className="add-to-cart-btn">
-                                        <button className="btn btn-primary" onClick={() =>this.context.addProductToCart(dataObject)}>
+                                        <button className="btn btn-primary" onClick={() =>this.context.addProductToCart(data)}>
                                             Add to cart
                                         </button>
                                     </div>
