@@ -6,6 +6,11 @@
         width: 20%;
         box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
         margin-right: 5px;
+        height: 400px;
+        text-align: center;
+        padding-top: 40px;
+        font-weight: bold;
+        text-decoration: underline;
     }
 
     .product-wrapper-right {
@@ -22,6 +27,7 @@
             padding: 20px 0 5px;
             position: relative;
             flex-basis: 24%;
+
             .product-image {
                 height: 280px;
                 width: 210px;
@@ -32,6 +38,7 @@
                     width: 100%;
                     transition: transform 1s;
                 }
+
                 img:hover {
                     transform: scale(1.2);
                 }
@@ -39,6 +46,7 @@
 
             .product-details {
                 padding: 0 12px;
+
                 .products-author {
                     color: #878787;
                     font-size: 12px;
@@ -113,13 +121,17 @@
                 button {
                     height: 35px;
                     width: 100%;
+                    outline: none !important;
+                    box-shadow: none;
                 }
+
             }
         }
 
         .product-list:hover {
             opacity: 0.8;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
             .products-title {
                 color: #2874f0;
             }

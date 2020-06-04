@@ -4,18 +4,23 @@
         width: 75%;
         box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
         float: left;
+
         .item-wrapper {
             display: flex;
             padding: 20px 0;
+
             .item-image {
                 height: 230px;
                 width: 180px;
+
                 img {
                     height: 100%;
                     width: 100%;
                 }
+
                 margin-right: 40px;
             }
+
             border-bottom: 1px solid;
 
             .item-content {
@@ -23,6 +28,7 @@
                 padding: 0 10px 0 30px;
                 font-size: 20px;
                 flex-basis: 45%;
+
                 .item-author {
                     color: #878787;
                     font-size: 16px;
@@ -89,13 +95,25 @@
                         }
                     }
                 }
+
+                .remove-card-btn {
+                    padding: 20px 0 0 0;
+                    font-weight: 500;
+
+                    span:hover{
+                        color: #2874f0;
+                        cursor: pointer;
+                    }
+                }
             }
-            .date-dliver{
+
+            .date-dliver {
                 text-align: center;
                 flex-basis: 30%;
             }
         }
     }
+
     .cart-price-right {
         width: 24%;
         float: right;
@@ -103,27 +121,32 @@
         padding: 40px 0px;
         box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
 
-        .price-details{
+        .price-details {
             text-align: center;
             font-weight: bold;
             border-bottom: 1px solid #f0f0f0;
         }
-        .pad{
+
+        .pad {
             padding: 10px 20px;
         }
-        .develry-charge{
+
+        .develry-charge {
             border-bottom: 2px dotted #f0f0f0;
         }
-        .cart-price-right-2{
+
+        .cart-price-right-2 {
             float: right;
             padding-right: 10px;
         }
-        .total-price{
+
+        .total-price {
             font-weight: bold;
         }
     }
 }
-.no-items{
+
+.no-items {
     margin-top: 120px;
     font-size: 24px;
     text-align: center;

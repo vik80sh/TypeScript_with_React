@@ -95,7 +95,7 @@ const GlobalState = (props: any) => {
             discountPercent:23
         },
         {
-            id: 'p9',
+            id: 'p10',
             title: 'The End of the Loneliness',
             author: 'Benedict Wells',
             price: '340',
@@ -113,7 +113,6 @@ const GlobalState = (props: any) => {
 
     }
     const removeProductFromCart = (product: any) => {
-        console.log("-------- -- - -- ",product)
         dispatch({ type: REMOVE_PRODUCT, payload: product })
 
     }

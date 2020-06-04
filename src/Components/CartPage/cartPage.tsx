@@ -5,10 +5,12 @@ import starImage from './../../Asserts/star.png'
 import './cartPage.scss'
 const Cart = () => {
     const context = useContext(ShopContext);
-    console.log("==+++==== ",context.removeProductFromCart)
+    const removeProductFromCart:any = context.removeProductFromCart;
     let cart: any = context.cart;
     let totalPrice: number = 0;
     let sizeOfCart: boolean = cart.length && cart.length > 0 ? true : false;
+
+
     if (sizeOfCart)
         return (<div className="text-capitalize cart-wrapper">
             <div className="cart-item-left">
@@ -32,9 +34,9 @@ const Cart = () => {
                                     <span className="price-off">{data.discountPercent }% off  {Math.round(Math.random() * 5 + 1)} offers available</span>
                                 </div>
                             </div>
-                            <div className="remove-card-btn"  onClick={() =>context.removeProductFromCart} > Remove </div>
-                        </div>
-                        <div className="date-dliver">Delivery by Sat Jun 13 | Free₹40</div>
+                            <div className="remove-card-btn" onClick={() => removeProductFromCart(data.id)} ><span> REMOVE</span> </div>
+                        </div> 
+                        <div className="date-dliver">Delivery by Sat Jun 13 20XX | Free₹40</div>
                     </div>
                 })}
             </div>

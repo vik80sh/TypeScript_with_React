@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { HashRouter as Router, NavLink } from 'react-router-dom'
+import {  BrowserRouter as Router, NavLink } from 'react-router-dom'
 import Home from './Components/HomePage/home';
-
 import './App.scss'
 class App extends React.Component {
   render() {

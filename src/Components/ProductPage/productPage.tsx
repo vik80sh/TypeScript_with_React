@@ -6,14 +6,18 @@ import './productPage.scss'
 export default class Product extends Component {
     static contextType = ShopContext;
     render() {
-        console.log("==+++==== ",this.context.removeProductFromCart)
         return (
             <div className="product-wrapper">
-                <div className="product-wrapper-left"> </div>
+                <div className="product-wrapper-left"> 
+                    Future task sorting and filter
+                </div>
                 <div className="product-wrapper-right">
                     {this.context.products.map((data: any, i: number) => {
                         let offeredPrice: number = data.price - (data.price * data.discountPercent / 100);
                         let priceNow = offeredPrice.toFixed(2);
+                        let isPresentIncard = this.context.cart.find((obj:any) => obj.id === data.id);
+                        isPresentIncard = isPresentIncard && isPresentIncard.id ? true : false
+                        
                         return <div className="product-list" key={i}>
                                 <div className="product-image"><img src={data.image} alt="book-img" /></div>
                                 <div className="text-capitalize product-details">
@@ -31,9 +35,12 @@ export default class Product extends Component {
                                         </div>
                                     </div>
                                     <div className="add-to-cart-btn">
-                                        <button className="btn btn-primary" onClick={() =>this.context.addProductToCart(data)}>
+                                        {!isPresentIncard ? <button className="btn btn-primary" onClick={() =>this.context.addProductToCart(data)}>
                                             Add to cart
-                                        </button>
+                                        </button> :
+                                        <button className="btn btn-danger" onClick={() =>this.context.removeProductFromCart(data.id)}>
+                                            Remove from cart
+                                        </button>}
                                     </div>
                                 </div>
                             </div>

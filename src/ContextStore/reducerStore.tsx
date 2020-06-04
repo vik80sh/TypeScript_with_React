@@ -6,10 +6,14 @@ const addProductToCart = (product: object,cart:any) => {
     let updatedCart={
         cart:  [...cart.cart, product]
     }
-    
     return updatedCart;
 }
-const removeProductFromCart = (productId: any,cart:any) => {
+const removeProductFromCart = (id: any,cart:any) => {
+    let updatedCart={
+        cart:  cart.cart.filter((data:any)=>data.id!==id)
+    }
+    return updatedCart;
+
 }
 export const shopReducer = (state:any, action:any) => {
     switch (action.type) {
