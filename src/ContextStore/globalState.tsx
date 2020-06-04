@@ -1,4 +1,4 @@
-import React, { useState, useReducer,useEffect} from 'react';
+import React, { useReducer} from 'react';
 import ShopContext from './context';
 import { shopReducer, ADD_PRODUCT, REMOVE_PRODUCT } from './reducerStore';
 

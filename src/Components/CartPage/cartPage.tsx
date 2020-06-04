@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext} from 'react';
 import ShopContext from './../../ContextStore/context'
 import starImage from './../../Asserts/star.png'
 
@@ -18,7 +18,7 @@ const Cart = () => {
                     let offeredPrice: number = data.price - (data.price * data.discountPercent / 100);
                     let priceNow = offeredPrice.toFixed(2);
                     totalPrice = totalPrice + parseInt(priceNow)
-                    return <div className="item-wrapper">
+                    return <div className="item-wrapper" key={i}>
                         <div className="item-image"><img src={data.image} alt="book-img" /></div>
                         <div className="item-content">
                             <div className="item-title">{data.title}</div>
