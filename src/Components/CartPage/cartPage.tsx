@@ -57,7 +57,7 @@ const Cart = () => {
             </div>
         </div>)
     else
-        return <div className="no-items">No any item in card</div>
+        return <div className="no-items">No any item in cart</div>
 }
 
 
